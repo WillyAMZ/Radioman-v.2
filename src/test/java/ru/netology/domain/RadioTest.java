@@ -105,8 +105,8 @@ class RadioTest {
 
     @Test
     void shouldCheckVolumeUp() {
-        int volume = 10;
-        int expected = 10;
+        int volume = 100;
+        int expected = 100;
 
         radio.setCurrentVolume(volume);
         radio.volumeUp();
@@ -125,7 +125,7 @@ class RadioTest {
 
     @Test
     void shouldCheckVolumeLimitUp() {
-        int volume = 11;
+        int volume = 101;
         int expected = 0;
 
         radio.setCurrentVolume(volume);
