@@ -9,28 +9,29 @@ class RadioTest {
 
     @Test
     void shouldGetCurrentStation() {
-        Radio radio = new Radio(9, 0, 100, 0, 9, 100);
+        Radio radio = new Radio(10, 100, 0, 9, 100);
         int expected = 4;
         radio.setCurrentStation(expected);
 
-        assertEquals(expected, radio.getCurrentStation());
+        Assertions.assertEquals(expected, radio.getCurrentStation());
     }
 
 
     @Test
     void shouldSetNextStation() {
-        Radio radio = new Radio(9, 0, 100, 0, 9, 100);
+        Radio radio = new Radio(10, 100, 0, 7, 100);
         int station = 7;
         int expected = 8;
 
         radio.setCurrentStation(station);
         radio.setNextStation();
-        assertEquals(expected, radio.getCurrentStation());
+        Assertions.assertEquals(expected, radio.getCurrentStation());
+
     }
 
     @Test
     void shouldSetPrevStation() {
-        Radio radio = new Radio(9, 0, 100, 0, 9, 100);
+        Radio radio = new Radio();
         int station = 6;
         int expected = 5;
 
@@ -41,18 +42,18 @@ class RadioTest {
 
     @Test
     void shouldIncreaseAboveNineStation() {
-        Radio radio = new Radio(9, 0, 100, 0, 9, 100);
+        Radio radio = new Radio(10, 100, 0, 9, 100);
         int station = 9;
         int expected = 0;
 
         radio.setCurrentStation(station);
         radio.setNextStation();
-        Assertions.assertEquals(expected, radio.getCurrentStation());
+        assertEquals(expected, radio.getCurrentStation());
     }
 
     @Test
     void shouldIncreaseBelowZeroStation() {
-        Radio radio = new Radio(9, 0, 100, 0, 0, 100);
+        Radio radio = new Radio(10, 100, 0, 0, 100);
         int station = 0;
         int expected = 9;
 
@@ -63,7 +64,7 @@ class RadioTest {
 
     @Test
     void shouldCheckLimitUp() {
-        Radio radio = new Radio(9, 0, 100, 0, 0, 100);
+        Radio radio = new Radio(10, 100, 0, 0, 100);
         int station = -1;
         int expected = 0;
 
@@ -73,7 +74,7 @@ class RadioTest {
 
     @Test
     void shouldCheckLimitDown() {
-        Radio radio = new Radio(9, 0, 100, 0, 9, 100);
+        Radio radio = new Radio(10, 100, 0, 9, 100);
         int station = 10;
         int expected = 9;
 
@@ -83,7 +84,7 @@ class RadioTest {
 
     @Test
     void shouldGetCurrentVolume() {
-        Radio radio = new Radio(9, 0, 100, 0, 9, 100);
+        Radio radio = new Radio(10, 100, 0, 9, 100);
         int volume = 70;
         int expected = 70;
 
@@ -93,7 +94,7 @@ class RadioTest {
 
     @Test
     void shouldVolumeUp() {
-        Radio radio = new Radio(9, 0, 100, 0, 9, 100);
+        Radio radio = new Radio(10, 100, 0, 9, 100);
         int volume = 40;
         int expected = 41;
 
@@ -104,7 +105,7 @@ class RadioTest {
 
     @Test
     void shouldVolumeDown() {
-        Radio radio = new Radio(9, 0, 100, 0, 9, 100);
+        Radio radio = new Radio(10, 100, 0, 9, 100);
         int volume = 70;
         int expected = 69;
 
@@ -115,7 +116,7 @@ class RadioTest {
 
     @Test
     void shouldCheckVolumeUp() {
-        Radio radio = new Radio(9, 0, 100, 0, 9, 100);
+        Radio radio = new Radio(10, 100, 0, 9, 100);
         int volume = 100;
         int expected = 100;
 
@@ -126,7 +127,7 @@ class RadioTest {
 
     @Test
     void shouldCheckVolumeDown() {
-        Radio radio = new Radio(9, 0, 100, 0, 9, 100);
+        Radio radio = new Radio(10, 100, 0, 9, 100);
         int volume = 0;
         int expected = 0;
 
@@ -137,7 +138,7 @@ class RadioTest {
 
     @Test
     void shouldCheckVolumeLimitUp() {
-        Radio radio = new Radio(9, 0, 100, 0, 9, 100);
+        Radio radio = new Radio(10, 100, 0, 9, 100);
         int volume = 101;
         int expected = 100;
 
@@ -147,7 +148,7 @@ class RadioTest {
 
     @Test
     void shouldCheckVolumeLimitDown() {
-        Radio radio = new Radio(9, 0, 100, 0, 9, 0);
+        Radio radio = new Radio(10, 100, 0, 9, 0);
         int volume = -1;
         int expected = 0;
 
